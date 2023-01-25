@@ -1,11 +1,12 @@
-import './App.css';
+import Home from "./Home";
 
 function App() {
-  const titel = 'The player list'
+ 
   return (
-    <div className="home">
-      <h1>{titel}</h1>
+    <div className="content">
+      <Home/>
     </div>
+   
   );
 }
 
