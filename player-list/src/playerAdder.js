@@ -1,15 +1,14 @@
-
-const PlayerAdder = ({playerList,handelAdder}) => {
+import { useState } from "react";
+const PlayerAdder = ({handleAdder}) => {
+    const [name, setName] = useState("");
+    const handleChange = (event) => {
+        setName(event.target.value);
+    }
    
     return ( 
         <div className="nameAdder">
-                <form action="playerName">
-                    <input type="text" placeholder="Add player name"/>
-                </form>
-                <form action="addButton">
-                    <button onClick={()=>handelAdder(newName)}> Add Player</button>
-                </form>
-
+            <input type="text" placeholder="Add player name" onChange={handleChange}/>
+            <button onClick={()=>handleAdder(name)}> Add Player</button>     
         </div> 
      );
 }

@@ -3,30 +3,28 @@ import { useState } from "react";
 import PlayerList from "./playerList";
 
 const Home = () => {
-    const[playersname,setPlayersname] =useState(['Messi','Rolando','Mbappe','Neymar']);
+    const [playersname, setPlayersname] = useState(['Messi','Rolando','Mbappe','Neymar']);
 
-    const handelDelete = (nameTodelete)=>{
-     const newPlayerlist=playersname.filter(name=>name!=nameTodelete);
-     setPlayersname(newPlayerlist);
+    const handleDelete = (nameTodelete) => {
+        const newPlayerlist = playersname.filter(name => name !== nameTodelete);
+        setPlayersname(newPlayerlist);
     }
-    const handelAdder = (newName)=>{
-     const updatedPlayerlist=playersname.push(newName);
-     setPlayersname(updatedPlayerlist);
+    const handleAdder = (newName) => {
+       // playersname.push(newName);
+        setPlayersname([...playersname, newName]);
     }
     
     return ( 
         <div className="home">
             <h1> Player Adder</h1>
             <div className="nameAdder">
-                <PlayerAdder playeradder={playersname} handelAdder={handelAdder}/>
+                <PlayerAdder handleAdder={handleAdder}/>
             </div>
            <div className="list-Preview">
-             <PlayerList playerlist={playersname} handelDelete={handelDelete}/>
-           </div>
-                                      
-        </div>
-             
-     );
+                <PlayerList playerList={playersname} handleDelete={handleDelete}/>
+           </div>                            
+        </div>     
+    );
 }
  
 export default Home;

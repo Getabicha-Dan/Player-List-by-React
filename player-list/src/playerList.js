@@ -1,19 +1,17 @@
 
-const PlayerList = ({playerlist,handelDelete}) => {
-   
+const PlayerList = ({playerList,handleDelete}) => {
     
     return ( 
         <div className="listed-players">
-            {playersname.map((name)=>(
-                <div className="playerlistPreview" key={playersname[i]}>
+            {playerList.map((name)=>(
+                <div className="playerlistPreview" key={name}>
                     {name}
-                    <button onClick={()=>handelDelete(nameTodelete)}>Delete</button>
+                    <button onClick={()=>handleDelete(name)}>Delete</button>
                 </div>
             ))}
-           
-            
         </div>
      );
 }
  
 export default PlayerList;
+
